@@ -1,0 +1,43 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .example-container > * {
+    width: 40%;
+    
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  .card-class{
+      /* text-align: center; */
+      padding-left: 10px;
+      padding-right: 10px;
+      
+      width: 40%;
+      margin: auto;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 6px;
+  }
+  .menu-bar {
+    position: absolute;
+    right: 60px;
+  
+    color: rgb(255, 255, 255);
+    background-color: #ff4081;
+  }
+  #radio {
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .error{
+    font-size: 12px;
+    color: #F44336;
+    font-family: sans-serif;
+    margin-top: 1px;
+  }
+ 

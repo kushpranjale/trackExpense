@@ -1,0 +1,54 @@
+
+<app-toolbar></app-toolbar>
+<br>
+<br>
+
+  <div class="menu-bar">
+    <button mat-raised-button class="float" color="accent" (click)="saveBtnHandler()" >
+      Your Expenses 
+    </button>
+  </div>
+
+  <mat-card class="card-class">
+ 
+  <form [formGroup] = "expensesGroup" (ngSubmit)= "onSubmit(formDirective)" #formDirective="ngForm">
+    <div class="example-container">
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName= "date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error>this field is required</mat-error>
+  </mat-form-field>
+  <!-- <mat-form-field>
+    <input matInput placeholder="category" formControlName="category">
+    <mat-error>this field is required</mat-error>
+  </mat-form-field> -->
+  <mat-form-field class="example-full-width">
+    <input type="text" placeholder="Category" aria-label="Number" matInput formControlName="category" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error>this field is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="amount" formControlName="amount">
+    </mat-form-field>
+    <div class="error" *ngIf="expensesGroup.get('amount').hasError('pattern') " > Invalid amount </div> 
+  <div id="radio">
+  <label id="example-radio-group-label">Type</label>
+  <br>
+  <br>
+  <mat-radio-group aria-label="Select an option" formControlName="type">
+    <mat-radio-button value="cash">Cash</mat-radio-button>
+    <mat-radio-button value="credit">Credit</mat-radio-button>
+  </mat-radio-group>
+  <div class="error" *ngIf="expensesGroup.controls.type.errors && submitted " > this field is required </div>
+</div>
+  <br>
+  <button class="button" mat-raised-button color="accent" type="submit">submit</button>
+</div>
+</form></mat-card>
+
